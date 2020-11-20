@@ -108,66 +108,13 @@ PIRÁMIDE 4
 
 // PIRÁMIDE 0
 console.log('PIRAMIDE 0');
-for (let i = 1; i <= 5; i++) {
-  console.log(i);
+function piramide0(pisos) {
+  for (let i = 1; i <= pisos; i++) {
+    console.log(i);
+  }
 }
 
-// // PIRÁMIDE 1
-// console.log('PIRAMIDE 1');
-// function piramide1(pisos) {
-//   let ladrillo = '*';
-//   return ladrillo.repeat(pisos);
-// }
-
-// for (let i = 1; i <= 5; i++) {
-//   console.log(piramide1(i));
-// }
-
-// // PIRÁMIDE 2
-// console.log('PIRAMIDE 2');
-// function piramide2(pisos) {
-//   let ladrillo = '*';
-//   let espacio = ' ';
-//   return espacio.repeat(5 - pisos) + ladrillo.repeat(pisos);
-// }
-
-// for (let i = 1; i <= 5; i++) {
-//   console.log(piramide2(i));
-// }
-
-// // PIRÁMIDE 3
-// console.log('PIRAMIDE 3');
-// function piramide3(pisos) {
-//   let ladrillo = '*';
-//   let espacio = ' ';
-//   return espacio.repeat(5 - pisos) + ladrillo.repeat(pisos * 2 - 1);
-// }
-
-// for (let i = 1; i <= 5; i++) {
-//   console.log(piramide3(i));
-// }
-
-// // PIRÁMIDE 4
-// console.log('PIRAMIDE 4');
-// function piramideMitadSuperior(pisos) {
-//   let ladrillo = '*';
-//   let espacio = ' ';
-//   return espacio.repeat(5 - pisos) + ladrillo.repeat(pisos * 2 - 1);
-// }
-
-// function piramideMitadInferior(pisos) {
-//   let ladrillo = '*';
-//   let espacio = ' ';
-//   return espacio.repeat(pisos) + ladrillo.repeat(9 - pisos * 2);
-// }
-
-// for (let i = 1; i <= 5; i++) {
-//   console.log(piramideMitadSuperior(i));
-// }
-
-// for (let i = 1; i <= 4; i++) {
-//   console.log(piramideMitadInferior(i));
-// }
+piramide0(5);
 
 // PIRÁMIDE 1
 console.log('PIRAMIDE 1');
@@ -186,18 +133,17 @@ piramide1(5);
 // PIRÁMIDE 2
 console.log('PIRAMIDE 2');
 
-function piramide2(pisos) {
+function construirPiso(elemento, ammount) {
   let piso = '';
-  let espacio = '';
-  let ladrillo = '';
+  for (let i = 1; i <= ammount; i++) {
+    piso = piso + elemento;
+  }
+  return piso;
+}
 
+function piramide2(pisos) {
   for (let i = 1; i <= pisos; i++) {
-    espacio = '';
-    for (let j = 1; j <= pisos - i; j++) {
-      espacio = espacio + ' ';
-    }
-    ladrillo = ladrillo + '*';
-    piso = espacio + ladrillo;
+    let piso = construirPiso(' ', pisos - i) + construirPiso('*', i);
     console.log(piso);
   }
 }
@@ -208,21 +154,8 @@ piramide2(5);
 console.log('PIRAMIDE 3');
 
 function piramide3(pisos) {
-  let piso = '';
-  let espacio = '';
-  let ladrillo = '';
-
   for (let i = 1; i <= pisos; i++) {
-    espacio = '';
-    for (let j = 1; j <= pisos - i; j++) {
-      espacio = espacio + ' ';
-    }
-    if (i > 1) {
-      ladrillo = ladrillo + '**';
-    } else {
-      ladrillo = ladrillo + '*';
-    }
-    piso = espacio + ladrillo;
+    let piso = construirPiso(' ', pisos - i) + construirPiso('*', i * 2 - 1);
     console.log(piso);
   }
 }
@@ -233,39 +166,50 @@ piramide3(5);
 console.log('PIRAMIDE 4');
 
 function piramide4(pisos) {
-  let piso = '';
-  let espacio = '';
-  let ladrillo = '';
-
   for (let i = 1; i <= pisos; i++) {
-    espacio = '';
-    for (let j = 1; j <= pisos - i; j++) {
-      espacio = espacio + ' ';
-    }
-    if (i > 1) {
-      ladrillo = ladrillo + '**';
-    } else {
-      ladrillo = ladrillo + '*';
-    }
-    piso = espacio + ladrillo;
+    let piso = construirPiso(' ', pisos - i) + construirPiso('*', i * 2 - 1);
     console.log(piso);
   }
-  piso = '';
-  espacio = '';
-  ladrillo = '';
-  for (let k = 1; k <= pisos - 1; k++) {
-    ladrillo = '';
-    for (let l = 1; l <= pisos - k; l++) {
-      if (l > 1) {
-        ladrillo = ladrillo + '**';
-      } else {
-        ladrillo = ladrillo + '*';
-      }
-    }
-    espacio = espacio + ' ';
-    piso = espacio + ladrillo;
+  for (let j = 1; j < pisos; j++) {
+    let piso = construirPiso(' ', j) + construirPiso('*', (pisos - j) * 2 - 1);
     console.log(piso);
   }
 }
+
+// function piramide4(pisos) {
+//   let piso = '';
+//   let espacio = '';
+//   let ladrillo = '';
+
+//   for (let i = 1; i <= pisos; i++) {
+//     espacio = '';
+//     for (let j = 1; j <= pisos - i; j++) {
+//       espacio = espacio + ' ';
+//     }
+//     if (i > 1) {
+//       ladrillo = ladrillo + '**';
+//     } else {
+//       ladrillo = ladrillo + '*';
+//     }
+//     piso = espacio + ladrillo;
+//     console.log(piso);
+//   }
+//   piso = '';
+//   espacio = '';
+//   ladrillo = '';
+//   for (let k = 1; k <= pisos - 1; k++) {
+//     ladrillo = '';
+//     for (let l = 1; l <= pisos - k; l++) {
+//       if (l > 1) {
+//         ladrillo = ladrillo + '**';
+//       } else {
+//         ladrillo = ladrillo + '*';
+//       }
+//     }
+//     espacio = espacio + ' ';
+//     piso = espacio + ladrillo;
+//     console.log(piso);
+//   }
+// }
 
 piramide4(5);
