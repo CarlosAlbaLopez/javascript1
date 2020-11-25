@@ -36,25 +36,25 @@ Si conseguimos desactivar la bomba saca un mensaje por la consola y no pide más
 Si agotamos todos los intentos explota (sacar por la consola BOOM!)
 */
 
-// const numeroAleatorio = Math.round(Math.random() * 10);
-// let pedirAlUsuarioElegirNumero = '';
+const numeroAleatorio = Math.round(Math.random() * 10);
+let pedirAlUsuarioElegirNumero = '';
 
-// function desactivarBomba(numeroIntentos) {
-//   for (let i = 0; i < numeroIntentos; i++) {
-//     pedirAlUsuarioElegirNumero = +prompt('Elige un número del 0 al 10');
-//     if (i === numeroIntentos - 1) {
-//       console.log('BOOM!');
-//       break;
-//     } else if (numeroAleatorio === pedirAlUsuarioElegirNumero) {
-//       console.log('Has desactivado la bomba :)');
-//       break;
-//     } else {
-//       console.log('Has fallado, te quedan', numeroIntentos - i - 1, 'intentos.');
-//     }
-//   }
-// }
+function desactivarBomba(numeroIntentos) {
+  for (let i = 0; i < numeroIntentos; i++) {
+    pedirAlUsuarioElegirNumero = +prompt('Elige un número del 0 al 10');
+    if (i === numeroIntentos - 1) {
+      console.log('BOOM!');
+      break;
+    } else if (numeroAleatorio === pedirAlUsuarioElegirNumero) {
+      console.log('Has desactivado la bomba :)');
+      break;
+    } else {
+      console.log('Has fallado, te quedan', numeroIntentos - i - 1, 'intentos.');
+    }
+  }
+}
 
-// desactivarBomba(5);
+desactivarBomba(5);
 
 /*
 - Hacer una función que diga si un número es divisible entre otro
@@ -68,53 +68,53 @@ Si agotamos todos los intentos explota (sacar por la consola BOOM!)
 - Una última función que saca los números primos hasta el 100
 */
 
-function esDivisible(a, b) {
-  if (a % b === 0) {
-    return true;
-  } else {
-    return false;
-  }
-}
+// function esDivisible(dividendo, divisor) {
+//   if (dividendo % divisor === 0) {
+//     return true;
+//   } else {
+//     return false;
+//   }
+// }
 
-function esPrimo(a) {
-  for (let i = 2; i < a; i++) {
-    if (esDivisible(a, i) === true) {
-      return false;
-    }
-  }
-  return true;
-}
+// function esPrimo(numero) {
+//   for (let i = 2; i < numero; i++) {
+//     if (esDivisible(numero, i) === true) {
+//       return false;
+//     }
+//   }
+//   return true;
+// }
 
-function imprimirPrimos(a) {
-  for (let i = 2; i <= a; i++) {
-    if (esPrimo(i) === true) {
-      console.log(i);
-    }
-  }
-}
+// function imprimirPrimos(numero) {
+//   for (let i = 2; i <= numero; i++) {
+//     if (esPrimo(i) === true) {
+//       console.log(i);
+//     }
+//   }
+// }
 
-imprimirPrimos(100);
+// imprimirPrimos(40);
 
-// Ejercicio con toString para convertir a Hexadecimal
+// // Ejercicio con toString para convertir a Hexadecimal
 
-// var num=111;
-// var a=num.toString(2),
-//     b=num.toString(8),
-//     c=num.toString(16),
-// console.log([a,b,c])
-// //output: [ '1101111', '157', '6f' ]
+// // var num=111;
+// // var a=num.toString(2),
+// //     b=num.toString(8),
+// //     c=num.toString(16),
+// // console.log([a,b,c])
+// // //output: [ '1101111', '157', '6f' ]
 
-// colorOf(255,0,0) should return "#ff0000"
-// colorOf(0,111,0) should return "#006f00"
-// colorOf(1, 2 ,3) should return "#010203"
+// // colorOf(255,0,0) should return "#ff0000"
+// // colorOf(0,111,0) should return "#006f00"
+// // colorOf(1, 2 ,3) should return "#010203"
 
-function colorOf(r, g, b) {
-  r = r.toString(16);
-  g = g.toString(16);
-  b = b.toString(16);
-  return '#' + r + g + b;
-}
+// function colorOf(r, g, b) {
+//   r = r.toString(16);
+//   g = g.toString(16);
+//   b = b.toString(16);
+//   return '#' + r + g + b;
+// }
 
-console.log(colorOf(255, 0, 0));
-console.log(colorOf(0, 111, 0));
-console.log(colorOf(1, 2, 3));
+// console.log(colorOf(255, 0, 0));
+// console.log(colorOf(0, 111, 0));
+// console.log(colorOf(1, 2, 3));

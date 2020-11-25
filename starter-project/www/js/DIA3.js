@@ -212,4 +212,4 @@ function piramide4(pisos) {
 //   }
 // }
 
-piramide4(5);
+piramide4(50);
