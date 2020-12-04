@@ -97,103 +97,141 @@
 
 // console.log(sumaDeEdadesAdultos);
 
-const desordenado = [891, 519, 11, 564, 98, 465, 151, 984, 81, 654, 21, 5, 46, 45, 645, 6];
-const ordenado = [];
-console.log('ARRAY ORIGINAL', desordenado);
+// const desordenado = [891, 519, 11, 564, 98, 465, 151, 984, 81, 654, 21, 5, 46, 45, 645, 6];
+// const ordenado = [];
+// console.log('ARRAY ORIGINAL', desordenado);
 
-function findSmallest(arrayDesordenado) {
-  let elMasPequeno;
+// function findSmallest(arrayDesordenado) {
+//   let elMasPequeno;
 
-  if (arrayDesordenado.length === 1) {
-    ordenado.push(arrayDesordenado[0]);
-    return ordenado;
-  }
-
-  for (let i = 0; i < arrayDesordenado.length; i++) {
-    let resta = 0;
-    for (let j = 0; j < arrayDesordenado.length; j++) {
-      if (arrayDesordenado[i] - arrayDesordenado[j] > resta) {
-        resta = arrayDesordenado[i] - arrayDesordenado[j];
-        elMasPequeno = arrayDesordenado[j];
-      }
-    }
-  }
-
-  const arrayWithoutSmallest = arrayDesordenado.filter((myArray) => {
-    return myArray > elMasPequeno;
-  });
-
-  ordenado.push(elMasPequeno);
-
-  return findSmallest(arrayWithoutSmallest);
-}
-
-console.log('ARRAY ORDENADO CON RESTA', findSmallest(desordenado));
-
-function ordenarArray(arrayDesordenado, indiceVariable) {
-  for (let i = 0; i < arrayDesordenado.length; i++) {
-    if (arrayDesordenado[indiceVariable] < arrayDesordenado[i]) {
-      let numeroParaRecolocar = arrayDesordenado[i];
-      arrayDesordenado.splice(i, 1, arrayDesordenado[indiceVariable]);
-      arrayDesordenado.splice(indiceVariable, 1, numeroParaRecolocar);
-    }
-  }
-  return arrayDesordenado;
-}
-
-function ordenar(arrayDesordenado) {
-  for (let i = 1; i < arrayDesordenado.length; i++) {
-    ordenarArray(arrayDesordenado, i);
-  }
-  return arrayDesordenado;
-}
-
-console.log('ARRAY ORDENADO CON SUSTITUCION', ordenar(desordenado));
-
-function ordenarBurbuja(arrayDesordenado) {
-  if (isSorted(arrayDesordenado) === false) {
-    for (let i = 0; i < arrayDesordenado.length; i++) {
-      if (arrayDesordenado[i] > arrayDesordenado[i + 1]) {
-        let numeroParaRecolocar = arrayDesordenado[i + 1];
-        arrayDesordenado.splice(i + 1, 1, arrayDesordenado[i]);
-        arrayDesordenado.splice(i, 1, numeroParaRecolocar);
-        // console.log(arrayDesordenado);
-      }
-    }
-    ordenarBurbuja(arrayDesordenado);
-  }
-  return arrayDesordenado;
-}
-
-function isSorted(items) {
-  for (let i = 0; i < items.length; i++) {
-    if (items[i] > items[i + 1]) {
-      return false;
-    }
-  }
-  return true;
-}
-
-console.log('ARRAY ORDENADO CON BURBUJA', ordenarBurbuja(desordenado));
-
-// // Suma de Intervalos Kata exercise
-// function sumIntervals(intervals) {
-//   let result = 0;
-//   for (let i = 0; i < intervals.length; i++) {
-//     result += intervals[i][1] - intervals[i][0];
+//   if (arrayDesordenado.length === 1) {
+//     ordenado.push(arrayDesordenado[0]);
+//     return ordenado;
 //   }
-//   return result;
-// }
 
-// function checkOverlaps(intervals) {
-//     for (let i = 0; i < intervals.length; i++) {
-//         if
+//   for (let i = 0; i < arrayDesordenado.length; i++) {
+//     let resta = 0;
+//     for (let j = 0; j < arrayDesordenado.length; j++) {
+//       if (arrayDesordenado[i] - arrayDesordenado[j] > resta) {
+//         resta = arrayDesordenado[i] - arrayDesordenado[j];
+//         elMasPequeno = arrayDesordenado[j];
+//       }
 //     }
+//   }
+
+//   const arrayWithoutSmallest = arrayDesordenado.filter((myArray) => {
+//     return myArray > elMasPequeno;
+//   });
+
+//   ordenado.push(elMasPequeno);
+
+//   return findSmallest(arrayWithoutSmallest);
 // }
 
-// console.log(
-//   sumIntervals([
-//     [1, 5],
-//     [6, 10],
-//   ])
-// );
+// console.log('ARRAY ORDENADO CON RESTA', findSmallest(desordenado));
+
+// function ordenarArray(arrayDesordenado, indiceVariable) {
+//   for (let i = 0; i < arrayDesordenado.length; i++) {
+//     if (arrayDesordenado[indiceVariable] < arrayDesordenado[i]) {
+//       let numeroParaRecolocar = arrayDesordenado[i];
+//       arrayDesordenado.splice(i, 1, arrayDesordenado[indiceVariable]);
+//       arrayDesordenado.splice(indiceVariable, 1, numeroParaRecolocar);
+//     }
+//   }
+//   return arrayDesordenado;
+// }
+
+// function ordenar(arrayDesordenado) {
+//   for (let i = 1; i < arrayDesordenado.length; i++) {
+//     ordenarArray(arrayDesordenado, i);
+//   }
+//   return arrayDesordenado;
+// }
+
+// console.log('ARRAY ORDENADO CON SUSTITUCION', ordenar(desordenado));
+
+// function ordenarBurbuja(arrayDesordenado) {
+//   if (isSorted(arrayDesordenado) === false) {
+//     for (let i = 0; i < arrayDesordenado.length; i++) {
+//       if (arrayDesordenado[i] > arrayDesordenado[i + 1]) {
+//         let numeroParaRecolocar = arrayDesordenado[i + 1];
+//         arrayDesordenado.splice(i + 1, 1, arrayDesordenado[i]);
+//         arrayDesordenado.splice(i, 1, numeroParaRecolocar);
+//         // console.log(arrayDesordenado);
+//       }
+//     }
+//     ordenarBurbuja(arrayDesordenado);
+//   }
+//   return arrayDesordenado;
+// }
+
+// function isSorted(items) {
+//   for (let i = 0; i < items.length; i++) {
+//     if (items[i] > items[i + 1]) {
+//       return false;
+//     }
+//   }
+//   return true;
+// }
+
+// console.log('ARRAY ORDENADO CON BURBUJA', ordenarBurbuja(desordenado));
+
+// Suma de Intervalos Kata exercise
+function sumIntervals(intervals) {
+  intervals = checkOverlapsMax(intervals);
+  let result = 0;
+  for (let i = 0; i < intervals.length; i++) {
+    result += intervals[i][1] - intervals[i][0];
+  }
+  return result;
+}
+
+// El problema es como se las carga peta el array al iterarlo de nuevo
+
+function checkOverlapsMin(intervals) {
+  if (intervals.length > 0) {
+    for (let i = 0; i < intervals.length; i++) {
+      for (let j = 0; j < intervals.length; j++) {
+        if (j !== i) {
+          if (intervals[i][0] >= intervals[j][0] && intervals[i][0] <= intervals[j][1]) {
+            intervals[i][0] = intervals[j][0];
+            if (intervals[i][1] < intervals[j][1]) {
+              intervals[i][1] = intervals[j][1];
+            }
+            intervals.splice(j, 1);
+          }
+        }
+      }
+    }
+  }
+  return intervals;
+}
+
+function checkOverlapsMax(intervals) {
+  intervals = checkOverlapsMin(intervals);
+  if (intervals.length > 0) {
+    for (let i = 0; i < intervals.length; i++) {
+      for (let j = 0; j < intervals.length; j++) {
+        if (j !== i) {
+          if (intervals[i][1] >= intervals[j][0] && intervals[i][1] <= intervals[j][1]) {
+            intervals[i][1] = intervals[j][1];
+            if (intervals[i][0] > intervals[j][0]) {
+              intervals[i][0] = intervals[j][0];
+            }
+            intervals.splice(j, 1);
+          }
+        }
+      }
+    }
+  }
+
+  return intervals;
+}
+
+console.log(
+  sumIntervals([
+    [1, 4],
+    [7, 10],
+    [3, 5],
+  ])
+);
